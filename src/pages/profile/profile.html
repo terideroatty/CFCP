@@ -1,0 +1,56 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="pg">
+  <ion-card>
+    <ion-card-header>
+      แก้ไขข้อมูล
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="userPostData.name" placeholder="{{userDetails.name}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Surname</ion-label>
+          <ion-input type="text" [(ngModel)]="userPostData.surname" placeholder="{{userDetails.surname}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="text" [(ngModel)]="userPostData.email" placeholder="{{userDetails.email}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Username</ion-label>
+          <ion-input type="text" [(ngModel)]="userPostData.username" placeholder="{{userDetails.username}}"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label stacked>Adrress</ion-label>
+          <ion-input type="text" [(ngModel)]="userPostData.address" placeholder="{{userDetails.address}}"></ion-input>
+        </ion-item>
+  
+    
+
+
+        <button ion-button full color="success" (click)="feedUpdate()">update</button>
+        <a href="#" (click)="login()">Login Page</a>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the CoursePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+              </button>
+  <ion-title>Course</ion-title>
+  <ion-buttons end>
+     
+    </ion-buttons>
+</ion-navbar>
+
+</ion-header>
+<?php 
+  
+>
+
+<ion-content padding id="cs">
+  
+    <ion-card *ngFor="let item of items">
+        <ion-card-content>
+        <div [ngSwitch]="item.c_id" style="text-align:center">
+            <p *ngSwitchCase="'1'" ><b>เช้า </b>
+              <img src="/assets/imgs/food.jpg" >
+              {{item.name}} </p>
+              
+            <p *ngSwitchCase="'2'" ><B>กลางวัน </B> <img src="/assets/imgs/food2.jpg" >{{item.name}}</p>
+            <p *ngSwitchCase="'3'" ><B>เย็น </B> <img src="/assets/imgs/food3.jpg" >{{item.name}}</p>
+            </div>
+        
+         
+        </ion-card-content>
+     </ion-card>
+</ion-content>

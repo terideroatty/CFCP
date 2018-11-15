@@ -1,0 +1,81 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+            <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                  </button>
+      <ion-title>Store</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only>
+            Logout
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content id="home" >
+    <ion-grid>
+      <ion-row style="align-content: center">
+        <ion-col>
+                <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+    </ion-col>
+    </ion-row>
+</ion-grid>
+    <!--<ion-grid>
+    <ion-list>
+        <ion-item>
+          <ion-label>Gaming</ion-label>
+          <ion-select [(ngModel)]="sorting">
+            <ion-option value="lowprice">เรียงราคาจาก น้อย-มาก</ion-option>
+          
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      
+    </ion-grid>-->
+        <ion-grid style="height: 100%">
+            <ion-row justify-content-center align-items-center >
+              <h1>Store</h1>
+              
+            </ion-row>
+            <ion-row>
+              <ion-col>
+              <ion-card>
+                <img src="/assets/imgs/food.jpg" >
+                <ion-card-header>
+                    <ion-card-title>ข้าวต้มกระดูกหมู</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <p>ราคา:</p><p style="color:green;">45฿</p>
+                    <button ion-button block >สั่งซื้อ</button>
+                </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <img src="/assets/imgs/food2.jpg" >
+              <ion-card-header>
+                  <ion-card-title>ปลากะพงต้มปวยเล้ง</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                  <p>ราคา:</p><p style="color:green;">50฿</p>
+                  <button ion-button block >สั่งซื้อ</button>
+              </ion-card-content>
+          </ion-card>
+        </ion-col>
+            </ion-row>
+        
+          </ion-grid>
+    <!--<ion-card *ngFor="let item of items">
+      <ion-card-content>
+      <ul [ngSwitch]="item.times">
+          <li *ngSwitchCase="'1'" >เช้า {{item.name}} {{item.des}}</li>
+          <li *ngSwitchCase="'2'" >กลางวัน {{item.name}} {{item.des}}</li>
+      </ul>
+      
+       
+      </ion-card-content>
+   </ion-card>-->
+  </ion-content>
