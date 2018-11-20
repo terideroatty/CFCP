@@ -34,6 +34,7 @@
         </ion-slides>
       </p>
       <button ion-button block (click)="profile()" >prolfile</button>
+     
           <ion-row justify-content-center align-items-center >
             <h1>ข่าวสาร</h1>
             
@@ -45,7 +46,7 @@
           
           <ion-row>
             <ion-col>
-              <ion-card *ngFor="let item of items">
+              <ion-card *ngFor="let item of dataSet">
                 <ion-card-header>
                   {{item.ftitle}}
                 </ion-card-header>
@@ -55,19 +56,6 @@
               </ion-card>
             </ion-col>
           </ion-row>
-
-          <ion-row>
-              <ion-col>
-                <ion-card *ngFor="let itemm of items2">
-                  <ion-card-header>
-                    {{itemm.ftitle}}
-                  </ion-card-header>
-                  <ion-card-content>
-                    {{itemm.fdes}}
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
 
           <ion-row justify-content-center align-items-center >
           <h1>แนะนำอาหาร</h1>
@@ -99,7 +87,7 @@
       </ion-col>
           </ion-row>
       
-        
+         
   <!--<ion-card *ngFor="let item of items">
     <ion-card-content>
     <ul [ngSwitch]="item.times">

@@ -4,6 +4,8 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import { Http,Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ProfilePage} from '../profile/profile';
+import * as moment from 'moment';
+import { Pipe, PipeTransform } from '@angular/core';
 /**
  * Generated class for the HomePage page.
  *
@@ -21,11 +23,13 @@ export class HomePage {
  responseData: any;
  showdata : any;
  dataSet : any;
- userPostData = {"user_id":"","token":""};
+ test : any;
+ userPostData = {"user_id":"","token":"","type":""};
  feedData ={"feed_id":"","ftitle":"","fdes":""};
  public item : any = [];
  public items : any = [];
  public items2 : any = [];
+ myDate= moment().format();
   /*userPostData = {
     name: "",
     des: ""
@@ -36,6 +40,7 @@ export class HomePage {
     this.userDetails = data.userData;
     this.userPostData.user_id = this.userDetails.user_id;
     this.userPostData.token = this.userDetails.token;
+    this.userPostData.type = this.userDetails.type;
   //  this.getDetail();
   }
 
@@ -58,55 +63,23 @@ export class HomePage {
   	// Go back to root
   	setTimeout(() => this.backToWelcome(), 1000);
   }
-  
+  changedata(){
+    console.log("date change!")
+  }
   load()
     {
-       this.http.get('http://localhost/DB/getNews.php')
-       .map(res => res.json())
-       .subscribe(data => 
-       {
-         this.item = data;
-          if(this.userDetails.type == this.item.ftype){
-          this.items = data;
-          }else if(this.userDetails.type != this.item.ftype){
-          this.items2 = data;
-          }
-          console.log("This mfood"+this.items);
-          console.log(this.items2);
-       });
-    }
- /* load()
-    {
-       this.http.get('http://localhost/DB/retrieve-dat.php')
-       .map(res => res.json())
-       .subscribe(data => 
-       {
-          this.items = data;         
-       });
-    }*/
-   
-  /*load()
-    {
-       this.http.get('http://localhost/DB/retrieve-dat.php')
-       .map(res => res.json())
-       .subscribe(data => 
-       {
-          this.items = data;         
-       });
-    }*/
-  /*getDetail() {
-    this.authService.getData()
-      .then((result) => {
-        this.responseData = result;
-        if (this.responseData.detailData) {
-          this.dataSet = this.responseData.detailData;
-        } else {}
-      }, (err) => {
-
-      });
-  }
- convertTime(created) {
-    let date = new Date(created * 1000);
-    return date;
-  }*/
+      this.authService.postData(this.userPostData, "getNS").then(res => {
+        this.responseData = res;
+        if (this.responseData.feedData) {
+          this.dataSet = this.responseData.feedData;
+          console.log(this.dataSet);
+        } else {
+          console.log("No access");
+        }
+      },
+      err => {
+        //Connection failed message
+      }
+    );
+  }     
 }
