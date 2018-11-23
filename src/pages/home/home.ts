@@ -5,7 +5,6 @@ import { Http,Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ProfilePage} from '../profile/profile';
 import * as moment from 'moment';
-import { Pipe, PipeTransform } from '@angular/core';
 /**
  * Generated class for the HomePage page.
  *
@@ -25,6 +24,7 @@ export class HomePage {
  dataSet : any;
  test : any;
  userPostData = {"user_id":"","token":"","type":""};
+ userPostData2 = {"user_id":"","token":""};
  feedData ={"feed_id":"","ftitle":"","fdes":""};
  public item : any = [];
  public items : any = [];
@@ -41,11 +41,14 @@ export class HomePage {
     this.userPostData.user_id = this.userDetails.user_id;
     this.userPostData.token = this.userDetails.token;
     this.userPostData.type = this.userDetails.type;
+    this.userPostData2.user_id = this.userDetails.user_id;
+    this.userPostData2.token = this.userDetails.token;
   //  this.getDetail();
   }
 
   ionViewDidLoad() {
     this.load();
+
     console.log('ionViewDidLoad HomePage');
     console.log(this.userDetails);
   }
@@ -63,9 +66,7 @@ export class HomePage {
   	// Go back to root
   	setTimeout(() => this.backToWelcome(), 1000);
   }
-  changedata(){
-    console.log("date change!")
-  }
+  
   load()
     {
       this.authService.postData(this.userPostData, "getNS").then(res => {

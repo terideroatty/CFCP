@@ -17,24 +17,39 @@
 </ion-navbar>
 
 </ion-header>
-<?php 
-  
->
 
 <ion-content padding id="cs">
   
-    <ion-card *ngFor="let item of items">
-        <ion-card-content>
-        <div [ngSwitch]="item.c_id" style="text-align:center">
-            <p *ngSwitchCase="'1'" ><b>เช้า </b>
-              <img src="/assets/imgs/food.jpg" >
-              {{item.name}} </p>
-              
-            <p *ngSwitchCase="'2'" ><B>กลางวัน </B> <img src="/assets/imgs/food2.jpg" >{{item.name}}</p>
-            <p *ngSwitchCase="'3'" ><B>เย็น </B> <img src="/assets/imgs/food3.jpg" >{{item.name}}</p>
-            </div>
-        
-         
-        </ion-card-content>
-     </ion-card>
+    <ion-row>
+        <ion-col>
+          <ion-card *ngFor="let morning of data1">
+            <ion-card-header>
+              {{morning.pro_name}}
+            </ion-card-header>
+           
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card *ngFor="let morning of data2">
+            <ion-card-header>
+              {{morning.pro_name}}
+            </ion-card-header>
+           
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card *ngFor="let morning of data3">
+            <ion-card-header>
+              {{morning.pro_name}}
+            </ion-card-header>
+           
+          </ion-card>
+        </ion-col>
+      </ion-row>
 </ion-content>
