@@ -16,6 +16,8 @@ import {StorePage} from '../pages/store/store';
 import { CommonProvider } from '../providers/common/common';
 import {ProfilePage} from '../pages/profile/profile';
 import { SplitPane } from '../providers/split-pane/split-pane';
+import {CartproPage} from '../pages/cartpro/cartpro';
+import { CartProvider } from '../providers/cart/cart';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { SplitPane } from '../providers/split-pane/split-pane';
     TabsPage,
     CoursePage,
     StorePage,
-    ProfilePage
+    ProfilePage,
+    CartproPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -42,7 +45,8 @@ import { SplitPane } from '../providers/split-pane/split-pane';
     TabsPage,
     CoursePage,
     StorePage,
-    ProfilePage
+    ProfilePage,
+    CartproPage
   ],
   providers: [
     StatusBar,
@@ -50,7 +54,8 @@ import { SplitPane } from '../providers/split-pane/split-pane';
     AuthServiceProvider ,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CommonProvider,
-    SplitPane
+    SplitPane,
+    CartProvider
   
   ]
 })

@@ -2,4 +2,11 @@ page-store {
     #home{
         background: color($colors, bgapp);
     }
+    ion-badge{
+        color: #fff;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        border-radius: 100%;
+    }
 }
