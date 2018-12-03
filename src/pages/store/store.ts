@@ -57,6 +57,7 @@ load() {
       this.responseData = res;
       if (this.responseData.product) {
         this.items = this.responseData.product;
+       
         //this.pap = this.product.length;
         console.log(this.items);
       } else {
@@ -86,12 +87,23 @@ load() {
 );
 }  */
 
+doRefresh(refresher) {
+  console.log('Begin async operation', refresher);
 
+  setTimeout(() => {
+    this.load();
+    console.log('Async operation has ended');
+    refresher.complete();
+  }, 2000);
+}
 addToCart(product){
   this.cartService.addProduct(product);
 }
 openCart(){
   this.navCtrl.push(CartproPage);
+}
+onSearch(event){
+  
 }
 //cart(p){
   ///=var a = [];

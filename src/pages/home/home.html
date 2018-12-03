@@ -23,7 +23,7 @@
 
 <ion-content id="home" >
     <p>
-        <ion-slides pager="true">
+        <ion-slides pager="true" loop="true" [autoplay]=5000>
           <ion-slide>
             <img src="./assets/imgs/Untitled.png" alt="">
           </ion-slide>
@@ -34,7 +34,6 @@
         </ion-slides>
       </p>
       <button ion-button block (click)="profile()" >prolfile</button>
-     
           <ion-row justify-content-center align-items-center >
             <h1>ข่าวสาร</h1>
             

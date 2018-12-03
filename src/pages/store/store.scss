@@ -2,11 +2,14 @@ page-store {
     #home{
         background: color($colors, bgapp);
     }
-    ion-badge{
-        color: #fff;
+    #cart-badge{
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: -3px;
+        right: -3px;
         border-radius: 100%;
+        background-color: crimson; 
+    }
+    #cart-btn{
+        position: relative;
     }
 }

@@ -51,6 +51,7 @@ export class HomePage {
 
     console.log('ionViewDidLoad HomePage');
     console.log(this.userDetails);
+    
   }
   profile(){
     this.navCtrl.push(ProfilePage)

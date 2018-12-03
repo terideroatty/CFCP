@@ -40,4 +40,7 @@ export class CartProvider {
   addProduct(product){
     this.cart.push(product);
   }
+  removeItem(msgIndex){
+    this.cart.splice(msgIndex, 1);
+  }
 }

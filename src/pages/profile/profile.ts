@@ -44,6 +44,7 @@ export class ProfilePage {
    this.authService.postData(this.userPostData, "profileUpdate").then((res) => {
   this.responseData = res;
   this.navCtrl.push(TabsPage);
+  console.log(this.userPostData);
    })
   }
   
