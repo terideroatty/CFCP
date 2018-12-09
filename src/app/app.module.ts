@@ -18,6 +18,7 @@ import {ProfilePage} from '../pages/profile/profile';
 import { SplitPane } from '../providers/split-pane/split-pane';
 import {CartproPage} from '../pages/cartpro/cartpro';
 import { CartProvider } from '../providers/cart/cart';
+import {PaymentPage} from '../pages/payment/payment';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +30,8 @@ import { CartProvider } from '../providers/cart/cart';
     CoursePage,
     StorePage,
     ProfilePage,
-    CartproPage
+    CartproPage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -46,7 +48,8 @@ import { CartProvider } from '../providers/cart/cart';
     CoursePage,
     StorePage,
     ProfilePage,
-    CartproPage
+    CartproPage,
+    PaymentPage
   ],
   providers: [
     StatusBar,
