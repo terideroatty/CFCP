@@ -43,4 +43,7 @@ export class CartProvider {
   removeItem(msgIndex){
     this.cart.splice(msgIndex, 1);
   }
+  removeAllItem(select){
+    this.cart.splice(select);
+  }
 }

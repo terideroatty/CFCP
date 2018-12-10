@@ -37,6 +37,9 @@ export class CartproPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartproPage');
+    this.authService.postData(this.userPostData, "checkPayment").then(res => {
+      this.responseData = res; 
+      this.checkstatus = this.responseData.checkpay.status;});
     let items = this.cartService.getCart();
     let selected = {};
     for (let obj of items){
@@ -55,14 +58,6 @@ export class CartproPage {
     console.log(this.total);
   }
   sendorder(){
-    this.authService.postData(this.userPostData, "checkPayment").then(res => {
-      this.responseData = res; 
-      this.checkstatus = this.responseData.checkpay.status;
-       },
-      err => {
-        //Connection failed message
-      }
-    );
     if(this.checkstatus == 0){
       for(var i=0;i < this.selectedItems.length ;i++){
         this.orderData.pro_id = this.selectedItems[i].pro_id;
@@ -71,9 +66,15 @@ export class CartproPage {
         this.orderData.user_id = this.selectedItems[i].user_id;
         this.orderData.token = this.selectedItems[i].token;
         this.authService.postData(this.orderData, "getOrder");
+        /*this.selectedItems.splice([i], 1);
+        this.cartService.removeAllItem([i]);*/
       }
+      this.selectedItems.splice(0);
+      this.cartService.removeAllItem(0);
       this.authService.postData(this.userPostData, "updatePayment");
+
       this.navCtrl.push(PaymentPage);
+
     }else if(this.checkstatus == 1){
       let alert = this.alert.create({
         title: 'คุณยังไม่ได้ชำระเงิน',

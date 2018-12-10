@@ -19,6 +19,9 @@ import { SplitPane } from '../providers/split-pane/split-pane';
 import {CartproPage} from '../pages/cartpro/cartpro';
 import { CartProvider } from '../providers/cart/cart';
 import {PaymentPage} from '../pages/payment/payment';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera} from '@ionic-native/camera';
 @NgModule({
   declarations: [
     MyApp,
@@ -58,7 +61,7 @@ import {PaymentPage} from '../pages/payment/payment';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CommonProvider,
     SplitPane,
-    CartProvider
+    CartProvider,File,FileTransfer,Camera
   
   ]
 })

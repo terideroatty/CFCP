@@ -5,6 +5,7 @@ import { Http,Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ProfilePage} from '../profile/profile';
 import * as moment from 'moment';
+import {PaymentPage} from '../payment/payment';
 /**
  * Generated class for the HomePage page.
  *
@@ -54,7 +55,7 @@ export class HomePage {
     
   }
   profile(){
-    this.navCtrl.push(ProfilePage)
+    this.navCtrl.push(PaymentPage)
   }
   backToWelcome(){
 	  const root = this.app.getRootNav();
