@@ -33,8 +33,8 @@ export class StorePage{
   pap : any;
   cart : any=[];
   items : any=[];
-  get : {"pro_id":"","pro_name":"","pro_price":"","pro_quantity":""};
-
+  get : {"pro_id":"","pro_name":"","pro_price":"","pro_quantity":"","user_id":"","count":"0"};
+  private currentNumber = 0;
 
    constructor(public navCtrl: NavController, public navParams: NavParams,
     public authService:AuthServiceProvider,public cartService: CartProvider) {
@@ -57,8 +57,12 @@ load() {
       this.responseData = res;
       if (this.responseData.product) {
         this.items = this.responseData.product;
-       
         //this.pap = this.product.length;
+
+
+        for(let i of this.items){
+          i.count = 0; 
+        }
         console.log(this.items);
       } else {
         console.log("No access");
@@ -69,6 +73,16 @@ load() {
     }
   );
 } 
+increment (msgIndex) {
+  this.items[msgIndex].count = this.items[msgIndex].count + 1;
+  console.log(this.items[msgIndex].count);
+ 
+}
+
+decrement (msgIndex) {
+  this.items[msgIndex].count = this.items[msgIndex].count - 1;
+  console.log(this.items[msgIndex].count);
+}
 /*getProducts(){
   this.authService.postData(this.userPostData, "getcart").then(res => {
     this.responseData = res;

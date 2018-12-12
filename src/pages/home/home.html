@@ -16,6 +16,13 @@
           Logout
         </button>
       </ion-buttons>-->
+      <ion-buttons end>
+          <button id="cart-btn" ion-button icon-only (click)="openCart()">
+              <ion-badge id="cart-badge" color="danger" *ngIf="cart.length > 0">{{cart.length}}</ion-badge>
+              <ion-icon name="cart" slot="icon-only"></ion-icon>
+            </button>
+           
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -23,7 +30,7 @@
 
 <ion-content id="home" >
     <p>
-        <ion-slides pager="true" loop="true" [autoplay]=5000>
+        <ion-slides id="images" pager="true" loop="true" [autoplay]=5000>
           <ion-slide>
             <img src="./assets/imgs/Untitled.png" alt="">
           </ion-slide>
@@ -33,58 +40,31 @@
           </ion-slide>
         </ion-slides>
       </p>
-      <button ion-button block (click)="profile()" >prolfile</button>
           <ion-row justify-content-center align-items-center >
             <h1>ข่าวสาร</h1>
             
           </ion-row>
-          <!-- <ion-row>
-            <h1>Welcome {{userDetails.name}}</h1>
-            <h2>{{userDetails.email}}</h2>
-          </ion-row> -->
+       
+          <ion-grid>
+              <ion-row>
+                <ion-card id="cardm" *ngFor="let item of dataSet;let msgIndex = index">
+                  <ion-card-header (click)="openmodal(msgIndex)">
+                      
+                    <h5 ion-text id="title">{{item.ftitle}}</h5>
+                  </ion-card-header>
+                  <ion-card-content (click)="openmodal(msgIndex)">
+                    <ion-col>
+                    <img src="http://localhost/webcancer/images/{{item.fphoto}}"> 
+                  </ion-col>
+                  </ion-card-content>
+                </ion-card>
+                </ion-row>
+            </ion-grid>
           
-          <ion-row>
-            <ion-col>
-              <ion-card *ngFor="let item of dataSet">
-                <ion-card-header>
-                  {{item.ftitle}}
-                </ion-card-header>
-                <ion-card-content>
-                  {{item.fdes}}
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-
           <ion-row justify-content-center align-items-center >
           <h1>แนะนำอาหาร</h1>
         </ion-row>
-          <ion-row>
-            <ion-col>
-            <ion-card>
-              <img src="/assets/imgs/food.jpg" >
-              <ion-card-header>
-                  <ion-card-title>ข้าวต้มกระดูกหมู</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                  <p>ราคา:</p><p style="color:green;">45฿</p>
-                  <button ion-button block >สั่งซื้อ</button>
-              </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card>
-            <img src="/assets/imgs/food2.jpg" >
-            <ion-card-header>
-                <ion-card-title>ปลากะพงต้มปวยเล้ง</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-                <p>ราคา:</p><p style="color:green;">50฿</p>
-                <button ion-button block >สั่งซื้อ</button>
-            </ion-card-content>
-        </ion-card>
-      </ion-col>
-          </ion-row>
+        
       
          
   <!--<ion-card *ngFor="let item of items">

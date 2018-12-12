@@ -1,0 +1,25 @@
+<!--
+  Generated template for the ModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ข่าวสาร</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<h1 ion-text>{{showdata.ftitle}}</h1>
+<hr>
+ <img src="http://localhost/webcancer/images/{{showdata.fphoto}}"> 
+ <p ion-text>&nbsp;&nbsp; {{showdata.fdes}} </p>
+
+</ion-content>

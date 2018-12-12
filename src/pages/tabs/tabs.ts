@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from '../home/home';
 import {CoursePage} from '../course/course';
-import {StorePage} from '../store/store'
+import {StorePage} from '../store/store';
+import {MePage} from '../me/me';
 /**
  * Generated class for the TabsPage page.
  *
@@ -26,6 +27,7 @@ export class TabsPage {
   this.tab1 = HomePage;
   this.tab2 = CoursePage;
   this.tab3 = StorePage;
+  this.tab6 = MePage;
   /*this.tab4 = StorePage;
   this.tab5 = CookPage;
   this.tab6 = AboutusPage;*/

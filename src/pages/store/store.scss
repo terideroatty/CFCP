@@ -12,4 +12,14 @@ page-store {
     #cart-btn{
         position: relative;
     }
+    .card{
+        background-color: map-get($colors, primary);
+        color: #fff;
+        margin-top: -3%;
+        border-radius: 15px;
+    }
+    .button{
+        background-color: aliceblue;
+        color: black;
+    }
 }

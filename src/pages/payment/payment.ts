@@ -101,7 +101,7 @@ export class PaymentPage {
 
     //random int
     
-    var user= this.userid;
+    var user= this.user;
     var random = Math.floor(Math.random() * 100);
     var today = new Date().toISOString(); 
     //option transfer

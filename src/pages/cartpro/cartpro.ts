@@ -26,6 +26,8 @@ export class CartproPage {
   userPostData = {"user_id":"","type":"","token":""};
   orderData = {"pro_id":"","pro_price":"","count":"","user_id":"","token":""};
   resposeData : any;
+  pro = {"user_id":"","token":"","count":"","pro_id":""};
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public cartService: CartProvider,
     public authService: AuthServiceProvider,private alert:AlertController) {
     const data = JSON.parse(localStorage.getItem('userData'));
@@ -68,6 +70,11 @@ export class CartproPage {
         this.authService.postData(this.orderData, "getOrder");
         /*this.selectedItems.splice([i], 1);
         this.cartService.removeAllItem([i]);*/
+        this.pro.user_id = this.selectedItems[i].user_id;
+        this.pro.token = this.selectedItems[i].token;
+        this.pro.count = this.selectedItems[i].count;
+        this.pro.pro_id = this.selectedItems[i].pro_id;
+        this.authService.postData(this.pro, "deleteQuantity");
       }
       this.selectedItems.splice(0);
       this.cartService.removeAllItem(0);

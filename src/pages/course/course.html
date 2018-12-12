@@ -19,7 +19,12 @@
 </ion-header>
 
 <ion-content padding id="cs">
-  
+  <p id="image">
+  <img src="http://localhost/webcancer/images/template.jpg"> 
+  </p>
+  <ion-row>
+  <ion-icon id="sunnyi" name="sunny"></ion-icon><h1>เช้า</h1>
+  </ion-row>
     <ion-row>
         <ion-col>
           <ion-card *ngFor="let morning of data1">
@@ -29,8 +34,10 @@
            
           </ion-card>
         </ion-col>
-      </ion-row>
-
+      </ion-row> 
+      <ion-row>
+      <ion-icon id="nooni" name="partly-sunny"></ion-icon><h1>กลางวัน</h1>
+    </ion-row>
       <ion-row>
         <ion-col>
           <ion-card *ngFor="let noon of data2">
@@ -41,7 +48,9 @@
           </ion-card>
         </ion-col>
       </ion-row>
-
+    <ion-row>
+      <ion-icon id="mooni" name="moon"></ion-icon><h1>กลางวัน</h1>
+    </ion-row>
       <ion-row>
         <ion-col>
           <ion-card *ngFor="let evening of data3">

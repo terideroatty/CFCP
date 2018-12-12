@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, App} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, App, ModalController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import { Http,Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ProfilePage} from '../profile/profile';
 import * as moment from 'moment';
 import {PaymentPage} from '../payment/payment';
+import {CartProvider} from '../../providers/cart/cart';
+import {CartproPage} from '../cartpro/cartpro';
+import {ModalPage} from '../modal/modal';
 /**
  * Generated class for the HomePage page.
  *
@@ -31,12 +34,10 @@ export class HomePage {
  public items : any = [];
  public items2 : any = [];
  myDate= moment().format();
-  /*userPostData = {
-    name: "",
-    des: ""
-  };*/
-  
-  constructor(public navCtrl: NavController,public authService : AuthServiceProvider,public app:App,public http:Http) {
+ cart : any =[];
+
+  constructor(public navCtrl: NavController,public authService : AuthServiceProvider,public app:App,
+    public http:Http,public cartService: CartProvider,private modal:ModalController) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     this.userPostData.user_id = this.userDetails.user_id;
@@ -49,7 +50,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.load();
-
+    this.cart = this.cartService.getCart();
     console.log('ionViewDidLoad HomePage');
     console.log(this.userDetails);
     
@@ -61,12 +62,20 @@ export class HomePage {
 	  const root = this.app.getRootNav();
 	  root.popToRoot();
   }
+openmodal(msgIndex){
+  this.showdata = this.dataSet[msgIndex];
+  const myModal =  this.modal.create('ModalPage',{data:this.showdata});
 
+  myModal.present();
+}
   logout() {
   	// Remove API token 
   	localStorage.clear();
   	// Go back to root
   	setTimeout(() => this.backToWelcome(), 1000);
+  }
+  openCart(){
+    this.navCtrl.push(CartproPage);
   }
   
   load()

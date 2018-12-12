@@ -1,0 +1,13 @@
+ <ion-row>
+        <ion-col>
+          <ion-card *ngFor="let item of dataSet">
+            <ion-card-header (click)="toggleAccordion()">
+              {{item.ftitle}}
+            </ion-card-header>
+            <ion-card-content #cc>
+              {{item.fdes}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+

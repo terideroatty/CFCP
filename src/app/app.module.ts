@@ -22,6 +22,11 @@ import {PaymentPage} from '../pages/payment/payment';
 import { FileTransfer} from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera} from '@ionic-native/camera';
+import { NotiProvider } from '../providers/noti/noti';
+import {ExpandableComponent} from '../components/expandable/expandable';
+import {AccordionComponent} from '../components/accordion/accordion';
+import {NotificatePage} from '../pages/notificate/notificate';
+import {MePage} from '../pages/me/me';
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +39,11 @@ import { Camera} from '@ionic-native/camera';
     StorePage,
     ProfilePage,
     CartproPage,
-    PaymentPage
+    PaymentPage,
+    NotificatePage,
+    ExpandableComponent,
+    AccordionComponent,
+    MePage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -43,6 +52,7 @@ import { Camera} from '@ionic-native/camera';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+
     HomePage,
     Welcome,
     Signup,
@@ -52,7 +62,10 @@ import { Camera} from '@ionic-native/camera';
     StorePage,
     ProfilePage,
     CartproPage,
-    PaymentPage
+    PaymentPage,
+    NotificatePage,
+    MePage
+   
   ],
   providers: [
     StatusBar,
@@ -61,7 +74,8 @@ import { Camera} from '@ionic-native/camera';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CommonProvider,
     SplitPane,
-    CartProvider,File,FileTransfer,Camera
+    CartProvider,File,FileTransfer,Camera,
+    NotiProvider
   
   ]
 })
