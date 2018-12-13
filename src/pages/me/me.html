@@ -29,6 +29,9 @@
   <ion-card-header>  
     <!--<ion-badge id="cart-badge" color="danger" *ngIf="cart.length > 0">{{cart.length}}</ion-badge>-->
    <img src="http://localhost/webcancer/images/Wallet-icon.png" alt="" (click)="payment()">
+   <p *ngFor="let show of showData ">
+   <ion-badge id="cart-badge" color="danger" *ngIf="show.status == 1"><ion-icon id="alerti" name="alert"></ion-icon></ion-badge>
+   </p>
    <h2 ion-text style="text-align: center;">รอดำเนินการชำระเงิน</h2>
   </ion-card-header>
 
@@ -40,10 +43,13 @@
 </ion-card>
 </ion-col>
 <ion-col col-6 >
-    <ion-card>
-      
+    <ion-card id="card2" >
       <ion-card-header>
        <img src="http://localhost/webcancer/images/delivery.png" alt="">
+
+        <p *ngFor="let show of showData ">
+       <ion-badge  id="cart-badge" color="danger" *ngIf="show.status == 2"><ion-icon id="alerti" name="alert"></ion-icon></ion-badge>
+          </p>
        <h2 ion-text style="text-align: center;">กำลังส่ง</h2>
       </ion-card-header>
     

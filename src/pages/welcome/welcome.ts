@@ -22,6 +22,9 @@ export class Welcome {
   userData = {"username":"", "password":""};
   constructor(public navCtrl: NavController,public authService: AuthServiceProvider, public navParams: NavParams,
     private toastCtrl:ToastController,private alert:AlertController, public http:Http) {
+      if(localStorage.getItem('userData')){
+        this.navCtrl.setRoot(TabsPage);
+      }
   }
   login(){
     if(this.userData.username && this.userData.password){

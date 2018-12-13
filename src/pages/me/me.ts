@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {ProfilePage} from  '../profile/profile';
+import {PaymentPage} from '../payment/payment';
+import {NotiProvider} from '../../providers/noti/noti';
 /**
  * Generated class for the MePage page.
  *
@@ -17,25 +19,43 @@ import {ProfilePage} from  '../profile/profile';
 export class MePage {
   public userDetails : any;
   responseData: any;
-  showPro: any=[];
-  userPostData = {"user_id":"","token":"","email":"","name":""};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider) {
+  showData: any=[];
+  userPostData = {"user_id":"","token":""};
+  pay : any;
+  delivery : any;
+  payPro : any=[];
+  deliPro : any=[];
+  keep : any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider,public notificatiob:NotiProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     this.userPostData.user_id = this.userDetails.user_id;
     this.userPostData.token = this.userDetails.token;
-    this.userPostData.email = this.userDetails.email;
-    
-    
   }
-
   ionViewDidLoad() {
+    this.load();
     console.log('ionViewDidLoad MePage');
-    this.showPro = this.userPostData;
-    console.log(this.showPro);
   }
   profile(){
     this.navCtrl.push(ProfilePage);
   }
-
+  payment(){
+    this.navCtrl.push(PaymentPage);
+  }
+  load()
+    {
+      this.authService.postData(this.userPostData, "checkStatus").then(res => {
+        this.responseData = res;
+        if (this.responseData.paystatus) {
+          this.showData = this.responseData.paystatus;
+        } else {
+          console.log("No access");
+        }
+      },
+      err => {
+        //Connection failed message
+      }
+    );
+  }     
+  
 }

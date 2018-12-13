@@ -13,11 +13,11 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content id="home">
 <ion-list>
   <ion-item-sliding side="right" *ngFor="let item of selectedItems;let msgIndex = index" lines="inset"> 
-  <ion-item>
-    <ion-label>{{item.count}} x {{item.pro_name}} - {{item.pro_price | currency:'฿'}}</ion-label>
+  <ion-item id="itemst">
+    <ion-label ><p id="listst">{{item.count}} x {{item.pro_name}} - {{item.pro_price | currency:'฿'}}</p></ion-label>
     <ion-label slot="end" text-right>{{(item.pro_price * item.count) | currency:'฿'}}</ion-label>
   
   </ion-item>
