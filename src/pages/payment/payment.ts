@@ -23,7 +23,7 @@ export class PaymentPage {
   userPostData = {"user_id":"","token":""};
   myphoto:any;
   userid : any;
-  user : any;
+  username : any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private transfer: FileTransfer, private file: File,private camera: Camera,
     public loading: LoadingController,public authService:AuthServiceProvider) {
@@ -95,13 +95,13 @@ export class PaymentPage {
       content: "Uploading..."
     });
     loader.present();
-    this.user = this.userid ;
+    this.username = this.userid;
     //create file transfer object
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     //random int
     
-    var user= this.user;
+    var username= this.username;
     var random = Math.floor(Math.random() * 100);
     var today = new Date().toISOString(); 
     //option transfer
@@ -113,7 +113,7 @@ export class PaymentPage {
       mimeType: "image/jpeg",
       headers: {},
       params : {
-        "user": user,
+        "username": username,
         
         // the rest of your form fields go here, except photo
     }
@@ -121,7 +121,7 @@ export class PaymentPage {
     }
 
     //file transfer action
-    fileTransfer.upload(this.myphoto,'http://localhost/uploadFoto.php', options)
+    fileTransfer.upload(this.myphoto,'http://192.168.2.33:80/uploadFoto.php', options)
       .then((data) => {
         alert("Success");
         loader.dismiss();

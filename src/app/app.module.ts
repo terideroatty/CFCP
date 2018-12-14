@@ -27,6 +27,7 @@ import {ExpandableComponent} from '../components/expandable/expandable';
 import {AccordionComponent} from '../components/accordion/accordion';
 import {NotificatePage} from '../pages/notificate/notificate';
 import {MePage} from '../pages/me/me';
+import {CookPage} from '../pages/cook/cook';
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +44,8 @@ import {MePage} from '../pages/me/me';
     NotificatePage,
     ExpandableComponent,
     AccordionComponent,
-    MePage
+    MePage,
+    CookPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -64,7 +66,8 @@ import {MePage} from '../pages/me/me';
     CartproPage,
     PaymentPage,
     NotificatePage,
-    MePage
+    MePage,
+    CookPage
    
   ],
   providers: [

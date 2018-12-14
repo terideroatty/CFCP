@@ -4,6 +4,7 @@ import {HomePage} from '../home/home';
 import {CoursePage} from '../course/course';
 import {StorePage} from '../store/store';
 import {MePage} from '../me/me';
+import {CookPage} from '../cook/cook';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 /**
  * Generated class for the TabsPage page.
@@ -34,6 +35,7 @@ export class TabsPage {
   this.tab1 = HomePage;
   this.tab2 = CoursePage;
   this.tab3 = StorePage;
+  this.tab5 = CookPage;
   this.tab6 = MePage;
   const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;

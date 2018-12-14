@@ -4,6 +4,8 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {ProfilePage} from  '../profile/profile';
 import {PaymentPage} from '../payment/payment';
 import {NotiProvider} from '../../providers/noti/noti';
+import {CartProvider} from '../../providers/cart/cart';
+import {CartproPage} from '../cartpro/cartpro';
 /**
  * Generated class for the MePage page.
  *
@@ -26,7 +28,8 @@ export class MePage {
   payPro : any=[];
   deliPro : any=[];
   keep : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider,public notificatiob:NotiProvider) {
+  cart : any =[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider,public notificatiob:NotiProvider,public cartService: CartProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     this.userPostData.user_id = this.userDetails.user_id;
@@ -35,12 +38,16 @@ export class MePage {
   ionViewDidLoad() {
     this.load();
     console.log('ionViewDidLoad MePage');
+    this.cart = this.cartService.getCart();
   }
   profile(){
     this.navCtrl.push(ProfilePage);
   }
   payment(){
     this.navCtrl.push(PaymentPage);
+  }
+  openCart(){
+    this.navCtrl.push(CartproPage);
   }
   load()
     {

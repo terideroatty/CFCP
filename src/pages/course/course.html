@@ -10,10 +10,14 @@
         <button ion-button menuToggle>
                 <ion-icon name="menu"></ion-icon>
               </button>
-  <ion-title>Course</ion-title>
+  <ion-title>คอร์ส</ion-title>
   <ion-buttons end>
-     
-    </ion-buttons>
+      <button id="cart-btn" ion-button icon-only (click)="openCart()">
+          <ion-badge id="cart-badge" color="danger" *ngIf="cart.length > 0">{{cart.length}}</ion-badge>
+          <ion-icon name="cart" slot="icon-only"></ion-icon>
+        </button>
+       
+</ion-buttons>
 </ion-navbar>
 
 </ion-header>
@@ -28,10 +32,12 @@
     <ion-row>
         <ion-col>
           <ion-card *ngFor="let morning of data1">
-            <ion-card-header>
-              {{morning.pro_name}}
+            <ion-card-header id="headers" style="text-align: center;">
+              <b>{{morning.pro_name}}</b>
             </ion-card-header>
-           
+            <ion-card-content style="text-align: center;">
+                <img src="http://localhost/webcancer/images/{{morning.pro_image}}">
+            </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row> 
@@ -41,10 +47,13 @@
       <ion-row>
         <ion-col>
           <ion-card *ngFor="let noon of data2">
-            <ion-card-header>
-              {{noon.pro_name}}
+            <ion-card-header id="headers" style="text-align: center;">
+              
+              <b>{{noon.pro_name}}</b>
             </ion-card-header>
-           
+           <ion-card-content style="text-align: center;">
+              <img src="http://localhost/webcancer/images/{{noon.pro_image}}">
+           </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -54,10 +63,12 @@
       <ion-row>
         <ion-col>
           <ion-card *ngFor="let evening of data3">
-            <ion-card-header>
-              {{evening.pro_name}}
+            <ion-card-header id="headers" style="text-align: center;">
+                <b> {{evening.pro_name}}</b>
             </ion-card-header>
-           
+           <ion-card-content style="text-align: center;">
+              <img src="http://localhost/webcancer/images/{{evening.pro_image}}">
+           </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>

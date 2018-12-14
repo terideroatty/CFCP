@@ -10,7 +10,7 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Home</ion-title>
+    <ion-title>หน้าแรก</ion-title>
     <!--<ion-buttons end>
         <button ion-button icon-only (click)='logout()'>
           Logout
@@ -50,7 +50,7 @@
                 <ion-card id="cardm" *ngFor="let item of dataSet;let msgIndex = index">
                   <ion-card-header (click)="openmodal(msgIndex)">
                       
-                    <h5 ion-text id="title">{{item.ftitle}}</h5>
+                    <h3 ion-text id="title">{{item.ftitle}}</h3>
                   </ion-card-header>
                   <ion-card-content (click)="openmodal(msgIndex)">
                     <ion-col>
@@ -61,11 +61,7 @@
                 </ion-row>
             </ion-grid>
           
-          <ion-row justify-content-center align-items-center >
-          <h1>แนะนำอาหาร</h1>
-        </ion-row>
-        
-      
+         
          
   <!--<ion-card *ngFor="let item of items">
     <ion-card-content>

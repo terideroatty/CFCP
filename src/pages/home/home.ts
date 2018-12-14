@@ -1,14 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, App, ModalController} from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import { Http,Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {ProfilePage} from '../profile/profile';
 import * as moment from 'moment';
 import {PaymentPage} from '../payment/payment';
 import {CartProvider} from '../../providers/cart/cart';
 import {CartproPage} from '../cartpro/cartpro';
-import {ModalPage} from '../modal/modal';
 /**
  * Generated class for the HomePage page.
  *
@@ -31,7 +29,7 @@ export class HomePage {
  userPostData2 = {"user_id":"","token":""};
  feedData ={"feed_id":"","ftitle":"","fdes":""};
  public item : any = [];
- public items : any = [];
+ items : any=[];
  public items2 : any = [];
  myDate= moment().format();
  cart : any =[];
@@ -93,5 +91,6 @@ openmodal(msgIndex){
         //Connection failed message
       }
     );
+   
   }     
 }

@@ -6,15 +6,47 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>cartpro</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>ตะกร้า</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content id="home">
-<ion-list>
+  <ion-grid style="height: 100%">
+      <h2 style="text-align: center;">รายการสั่งซื้อ</h2>
+    <ion-list *ngFor="let item of selectedItems;let msgIndex = index" lines="inset">
+      <ion-item id="proname">
+       <h2  style="color: rgb(255, 251, 251);">{{item.pro_name}}</h2> 
+    </ion-item>
+    <ion-item-sliding side="right" lines="inset">
+    <ion-item>
+    <ion-row>
+    <ion-col col-6>
+     <img id="img" src="http://localhost/webcancer/images/{{item.pro_image}}" id="img">
+    </ion-col>
+    <ion-col col-3>
+      <p>จำนวน : {{item.count}} ชิ้น </p>
+      <p>ราคาต่อชิ้น : {{item.pro_price | currency:'฿'}} </p>
+    </ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item-options>
+        <button ion-button (click)="deleteItem(msgIndex)" style="background-color: red">ลบ</button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item>
+      <p>ราคารวม : {{(item.pro_price * item.count) | currency:'฿'}}</p>
+    </ion-item>
+      </ion-list>
+
+      
+      
+ 
+
+    
+<!--<ion-list>
   <ion-item-sliding side="right" *ngFor="let item of selectedItems;let msgIndex = index" lines="inset"> 
   <ion-item id="itemst">
     <ion-label ><p id="listst">{{item.count}} x {{item.pro_name}} - {{item.pro_price | currency:'฿'}}</p></ion-label>
@@ -29,6 +61,15 @@
     Total: <span end>{{total | currency:'฿'}}</span>
   </ion-item>
 
-</ion-list>
-<button ion-button full (click)="sendorder()">ยืนยันการสั่งซื้อ</button>
+</ion-list>-->
+
+</ion-grid>
 </ion-content>
+<ion-footer id="foot">
+    <ion-list>
+      <ion-item>
+      <p>ราคารวมทั้งหมด : {{total | currency:'฿'}}</p>
+    </ion-item>
+          <button ion-button full (click)="sendorder()">ยืนยันการสั่งซื้อ</button>
+        </ion-list>
+  </ion-footer>

@@ -6,13 +6,36 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>cook</ion-title>
+    <ion-buttons end>
+        <button id="cart-btn" ion-button icon-only (click)="openCart()">
+            <ion-badge id="cart-badge" color="danger" *ngIf="cart.length > 0">{{cart.length}}</ion-badge>
+            <ion-icon name="cart" slot="icon-only"></ion-icon>
+          </button>
+         
+  </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding id="cs">
+<ion-grid>
+  <ion-row>
+  <ion-card *ngFor="let show of showdata">
+    <ion-card-header>
+      <h1 style="text-align: center;"><b>{{show.ck_name}}</b></h1><br>
+      <img id="img" src="http://localhost/webcancer/images/{{show.ck_photo}}">
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{show.ck_ingredient}}</p><br>
+      <p>{{show.ck_how}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-row>
+</ion-grid>
 </ion-content>

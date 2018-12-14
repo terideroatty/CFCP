@@ -4,7 +4,7 @@
             <button ion-button menuToggle>
                     <ion-icon name="menu"></ion-icon>
                   </button>
-      <ion-title>Store</ion-title>
+      <ion-title>ร้านค้า</ion-title>
       <ion-buttons end>
           <button id="cart-btn" ion-button icon-only (click)="openCart()">
             <ion-badge id="cart-badge" color="danger" *ngIf="cart.length > 0">{{cart.length}}</ion-badge>
@@ -44,16 +44,12 @@
             
          <ion-col id="storecard" col-6  *ngFor="let product of items;let msgIndex = index ">
             <ion-card >
-              <img src="/assets/imgs/food2.jpg" >
+              <img id="img" src="http://localhost/webcancer/images/{{product.pro_image}}" >
               <ion-card-header>
                   <ion-card-title><h5 ion-text color="light">{{product.pro_name}}</h5></ion-card-title>
               </ion-card-header>
               <ion-card-content>
                   <p>ราคา:</p><p style="color:rgb(29, 167, 29);">{{product.pro_price}}฿</p>
-                 
-                  <button class="button icon-left ion-remove-circle" (click)="decrement(msgIndex)"></button>
-                    {{product.count}}
-                    <ion-icon name="add-circle" (click)="increment(msgIndex)"></ion-icon>
                   <button ion-button block  (click)="addToCart(product)">สั่งซื้อ</button>
               </ion-card-content>
           </ion-card>

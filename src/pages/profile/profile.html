@@ -10,7 +10,7 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>profile</ion-title>
+    <ion-title>ข้อมูลส่วนตัว</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,36 +19,36 @@
 <ion-content padding id="pg">
   <ion-card>
     <ion-card-header>
-      แก้ไขข้อมูล
+      <h2>แก้ไขข้อมูล</h2>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label stacked>Name</ion-label>
+          <ion-label stacked>ชื่อ</ion-label>
           <ion-input type="text" [(ngModel)]="userPostData.name" placeholder="{{userDetails.name}}"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Surname</ion-label>
+          <ion-label stacked>นามสกุล</ion-label>
           <ion-input type="text" [(ngModel)]="userPostData.surname" placeholder="{{userDetails.surname}}"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Email</ion-label>
+          <ion-label stacked>อีเมล</ion-label>
           <ion-input type="text" [(ngModel)]="userPostData.email" placeholder="{{userDetails.email}}"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Username</ion-label>
+          <ion-label stacked>ชื่อผู้ใช้</ion-label>
           <ion-input type="text" [(ngModel)]="userPostData.username" placeholder="{{userDetails.username}}"></ion-input>
         </ion-item>
       
         <ion-item>
-          <ion-label stacked>Adrress</ion-label>
-          <ion-input type="text" [(ngModel)]="userPostData.address" placeholder="{{userDetails.address}}"></ion-input>
+          <ion-label stacked>ที่อยู่</ion-label>
+          <ion-textarea  [(ngModel)]="userPostData.address" placeholder="{{userDetails.address}}"></ion-textarea>
         </ion-item>
   
     
 
 
-        <button ion-button full color="success" (click)="feedUpdate()">update</button>
+        <button ion-button full color="success" (click)="feedUpdate()">แก้ไขข้อมูล</button>
         
       </ion-list>
     </ion-card-content>

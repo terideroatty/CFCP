@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http,Headers, RequestOptions } from '@angular/http';
+import { Http} from '@angular/http';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import 'rxjs/add/operator/map';
+import {CartProvider} from '../../providers/cart/cart';
+import {CartproPage} from '../cartpro/cartpro';
 /**
  * Generated class for the CoursePage page.
  *
@@ -26,7 +28,8 @@ export class CoursePage {
   items1 : any=[];
   items2 : any=[];
   items3 : any=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public authService:AuthServiceProvider) {
+  cart : any =[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public authService:AuthServiceProvider,public cartService: CartProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     this.userPostData.user_id = this.userDetails.user_id;
@@ -63,6 +66,8 @@ export class CoursePage {
     }
   );
 }     
-    
+openCart(){
+  this.navCtrl.push(CartproPage);
+}   
    
 }

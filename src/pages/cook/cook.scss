@@ -1,3 +1,18 @@
 page-cook {
-
+    #cs{
+        background: color($colors, bgapp);
+    }
+    .card-header{
+        border-top-left-radius: 5%;
+        border-top-right-radius: 5%;
+        background-color : rgba(118, 17, 122, 0.377);
+    }
+    .card-content{
+        background-color: beige;
+        margin-top: 2%;
+    }
+    #img{
+        width:300px;
+        height:150px;
+    }
 }

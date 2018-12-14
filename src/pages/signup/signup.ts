@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,AlertController,ToastController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
-import {Login} from '../login/login';
+import {Welcome} from '../welcome/welcome';
 import {HomePage} from '../home/home';
 /**
  * Generated class for the SignupPage page.
@@ -65,6 +65,6 @@ export class Signup {
 
  login(){
    //Login page link
-   this.navCtrl.push(Login);
+   this.navCtrl.push(Welcome);
  }
 }

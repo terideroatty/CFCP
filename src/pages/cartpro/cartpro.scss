@@ -8,4 +8,29 @@ page-cartpro {
     #itemst{
         background-color: black;
     }
+    #proname{
+        background-color: darkslateblue;
+    }
+    #img{
+        width: 100%;
+        margin-top: 1%;
+        margin-bottom: -2%;
+        margin-left: -1%;
+        text-align: center;
+        left: 5%;
+        border: 1px solid rgb(39, 33, 33);
+        border-radius: 4px;
+        padding: 5px;
+    }
+    .no-scroll .scroll-content{
+        overflow: hidden;
+   }
+   #foot{
+       margin-top: -10%;
+       margin-bottom: -10%;
+   }
+   #img{
+    width:300px;
+    height:120px;
+}
 }
