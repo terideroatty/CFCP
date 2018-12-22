@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let apiUrl = 'http://192.168.2.33:80/PHP-Slim-Restful/api/';
+let apiUrl = 'http://54.169.75.217:8080/PHP-Slim-Restful/api/';
 /*
   Generated class for the AuthServiceProvider provider.
   See https://angular.io/guide/dependency-injection for more info on providers

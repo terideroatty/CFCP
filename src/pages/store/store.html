@@ -38,13 +38,31 @@
       </ion-list>
       
     </ion-grid>-->
-        <ion-grid style="height: 100%" > 
-           
+      <header *ngIf="hideMe">
+          <ion-row>
+                  <button id="" (click)="filtermore()" ion-button icon-only>
+                      <ion-icon style="color:chartreuse;" name="trending-up"  >฿</ion-icon>
+                    </button>
+                  
+                  <button color="primary" (click)="filterdata()" ion-button icon-only>
+                    <ion-icon style="color:crimson;" name="trending-down"  >฿</ion-icon>
+                  </button>          
+              </ion-row>
+      </header>
     <ion-row>
-            
+      <ion-col col-10>
+      <ion-searchbar (ionInput)="getItems($event)" clearInput></ion-searchbar>
+      </ion-col>
+      <ion-col col-2>
+      <button  (click)="hide()" ion-button icon-only>
+          <ion-icon name="settings"></ion-icon>
+      </button> 
+      </ion-col>
+    </ion-row>
+    <ion-row>
          <ion-col id="storecard" col-6  *ngFor="let product of items;let msgIndex = index ">
             <ion-card >
-              <img id="img" src="http://localhost/webcancer/images/{{product.pro_image}}" >
+              <img id="img" src="http://54.169.75.217:8080/webcancer/images/{{product.pro_image}}" >
               <ion-card-header>
                   <ion-card-title><h5 ion-text color="light">{{product.pro_name}}</h5></ion-card-title>
               </ion-card-header>
@@ -57,7 +75,7 @@
       
             </ion-row>
             
-          </ion-grid>
+
        
     <!--<ion-card *ngFor="let item of items">
       <ion-card-content>

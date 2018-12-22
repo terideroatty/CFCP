@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, GESTURE_ITEM_SWIPE } from 'ionic-angular';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {CartproPage} from '../cartpro/cartpro';
 import {CartProvider} from '../../providers/cart/cart';
+
 /**
  * Generated class for the StorePage page.
  *
@@ -30,9 +31,11 @@ export class StorePage{
   rec3 : any;
   rec4 : any;
   data : any=[];
-  pap : any;
+  searchQuery: string = '';
   cart : any=[];
   items : any=[];
+  items2 : any=[];
+  hideMe = false;
   get : {"pro_id":"","pro_name":"","pro_price":"","pro_quantity":"","user_id":"","count":"0"};
   private currentNumber = 0;
 
@@ -83,24 +86,12 @@ decrement (msgIndex) {
   this.items[msgIndex].count = this.items[msgIndex].count - 1;
   console.log(this.items[msgIndex].count);
 }
-/*getProducts(){
-  this.authService.postData(this.userPostData, "getcart").then(res => {
-    this.responseData = res;
-    if (this.responseData.product) {
-      this.product = this.responseData.product;
-      this.pap = this.product.length;
-      console.log(this.product);
-      return 
-    } else {
-      console.log("No access");
-    }
-  },
-  err => {
-    //Connection failed message
-  }
-);
-}  */
-
+filterdata(){
+  this.items = this.items.sort((a, b) => a.pro_price <= b.pro_price ? -1 : 1);
+}
+filtermore(){
+  this.items = this.items.sort((a, b) => a.pro_price <= b.pro_price ? 1 : -1);
+}
 doRefresh(refresher) {
   console.log('Begin async operation', refresher);
 
@@ -116,8 +107,24 @@ addToCart(product){
 openCart(){
   this.navCtrl.push(CartproPage);
 }
-onSearch(event){
-  
+hide() {
+  if(this.hideMe == true){
+    this.hideMe = false;
+  }else{
+    this.hideMe = true;
+  }
+}
+getItems(ev: any){
+
+  let val = ev.target.value;
+
+  if(val && val.trim() != ''){
+    this.items = this.items.filter((item) => {
+      return (item.pro_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    })
+  }else{
+    this.items = this.responseData.product;
+  }
 }
 //cart(p){
   ///=var a = [];

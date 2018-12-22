@@ -20,16 +20,21 @@ import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 export class PaymentPage {
   public userDetails : any;
   responseData: any;
-  userPostData = {"user_id":"","token":""};
+  userPostData = {"user_id":"","token":"","imageB64":""};
   myphoto:any;
   userid : any;
-  username : any;
+  user : any;
+  public photos: any;
+  public base64Image: string;
+  public fileImage: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private transfer: FileTransfer, private file: File,private camera: Camera,
     public loading: LoadingController,public authService:AuthServiceProvider) {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     this.userid = this.userDetails.user_id;
+    this.userPostData.user_id = this.userDetails.user_id;
+    this.userPostData.token = this.userDetails.token;
   }
 
   ionViewDidLoad() {
@@ -54,21 +59,36 @@ export class PaymentPage {
 
   getImage() {
     const options: CameraOptions = {
-      quality: 70,
+      quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      saveToPhotoAlbum:false
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 600,
+      targetHeight: 600,
+      saveToPhotoAlbum: false
     }
 
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64:
-      this.myphoto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      // Handle error
-    });
+    this.camera.getPicture(options).then(
+      imageData => {
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.photos.push(this.base64Image);
+        this.photos.reverse();
+        this.sendData(imageData);
+     },
+     err => {
+       console.log(err);
+     }
+  );
   }
+sendData(imageData){
+  this.userPostData.imageB64 = imageData;
 
+  this.authService.postData(this.userPostData,'userImage').then((res)=>{
+    console.log(res);
+  },(err)=>{
+
+  });
+}
   cropImage() {
     const options: CameraOptions = {
       quality: 70,
@@ -95,13 +115,13 @@ export class PaymentPage {
       content: "Uploading..."
     });
     loader.present();
-    this.username = this.userid;
+    this.user = this.userid;
     //create file transfer object
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     //random int
     
-    var username= this.username;
+    var user= this.user;
     var random = Math.floor(Math.random() * 100);
     var today = new Date().toISOString(); 
     //option transfer
@@ -113,7 +133,7 @@ export class PaymentPage {
       mimeType: "image/jpeg",
       headers: {},
       params : {
-        "username": username,
+        "user": user,
         
         // the rest of your form fields go here, except photo
     }
@@ -121,7 +141,7 @@ export class PaymentPage {
     }
 
     //file transfer action
-    fileTransfer.upload(this.myphoto,'http://192.168.2.33:80/uploadFoto.php', options)
+    fileTransfer.upload(this.myphoto,'http://54.169.75.217:8080/uploadFoto.php', options)
       .then((data) => {
         alert("Success");
         loader.dismiss();
