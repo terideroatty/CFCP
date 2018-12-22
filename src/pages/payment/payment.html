@@ -6,18 +6,33 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>payment</ion-title>
-  </ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+<ion-title>จ่ายเงิน</ion-title>
+
+</ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button (click)="takePhoto()" full color="primary">Take Photo</button>
-  <button ion-button (click)="getImage()" full color="secondary">Get Photo From Library</button>
-  <button ion-button (click)="cropImage()" full color="danger">Crop Image</button>
-  <button ion-button (click)="uploadImage()" full color="dark">Upload Image</button>
-
+<ion-content padding id="cs">
+  <h3 style="text-align: center; color:midnightblue">กรุณาชำระยอดเงินจำนวน : {{totalsec}}฿</h3><br>
+  <h4 style="text-align: center;color:mediumseagreen">ตามเลขที่บัญชี 001-3-64129-3 กสิกร ณัฐรฐนนท์ มหาเขตต์ </h4>
+  <p style="text-align: center;color:mediumseagreen">เมื่อโอนเสร็จแล้วให้ผู้ใช้ทำการอัพโหลดรูปภาพสลิปใบเสร็จการโอนเงินของท่านเข้าสู่ระบบเมื่อทำการโอนแล้วเราจะดำเนินการส่งอาหารให้</p>
+  <button ion-button (click)="takePhoto()" full color="primary">
+      <ion-icon name="camera">ถ่ายรูป</ion-icon>
+  </button>
+  <button ion-button (click)="getImage()" full color="secondary">
+    <ion-icon name="image">รูปจากคลังรูปในเครื่อง</ion-icon>
+  </button>
+  <button ion-button (click)="cropImage()" full color="danger">
+      <ion-icon name="reverse-camera">ครอปภาพ</ion-icon>
+  </button>
+  <button ion-button (click)="uploadImage()" full color="dark">
+      <ion-icon name="cloud-upload">อัพโหลด</ion-icon>
+  </button>
+ 
   <p align="center"><img src="{{ myphoto }}"></p>
 </ion-content>

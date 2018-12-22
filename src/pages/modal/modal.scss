@@ -1,3 +1,15 @@
 page-modal {
-
+    #cs{
+        background: color($colors, bgapp);
+    }
+    #contentnews{
+        background-color: antiquewhite;
+        font-size: 120%;
+    }
+    #headercontent{
+        background-color: rgb(9, 27, 65);
+        color: white;
+        text-align: center;
+        
+    }
 }

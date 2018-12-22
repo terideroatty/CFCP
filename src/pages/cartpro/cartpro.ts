@@ -80,7 +80,9 @@ export class CartproPage {
       this.cartService.removeAllItem(0);
       this.authService.postData(this.userPostData, "updatePayment");
 
-      this.navCtrl.push(PaymentPage);
+      this.navCtrl.push(PaymentPage,{
+        totalPrice: this.total
+      });
 
     }else if(this.checkstatus == 1){
       let alert = this.alert.create({
